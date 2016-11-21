@@ -15,6 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".BitmapListActivity"></activity>
+        <activity android:name=".bitmap.BitmapTest"></activity>
+        <activity android:name=".bitmap.CanvasPaint"></activity>
+        <activity android:name=".bitmap.AnimationTest"></activity>
+        <activity android:name=".bitmap.MatrixActivity"></activity>
+        <activity android:name=".bitmap.SurfaceViewMyActivity"></activity>
+        <activity android:name=".bitmap.TweenMyActivity"></activity>
     </application>
 
 </manifest>
