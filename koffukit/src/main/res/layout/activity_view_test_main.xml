@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- top Bar layout -->
+    <RelativeLayout
+        android:id="@+id/fv_top_bar"
+        android:background="@color/bg_col"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/fv_top_bar_txt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="@color/text_topbar"
+            android:text="INFORMATION"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/div_white"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:id="@+id/fv_tab_bar"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bg_col"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/tv_channel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tab_menu_bg"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/tab_menu_channel"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Channel"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="16dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tab_menu_bg"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/tab_menu_message"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Message"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="16dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_better"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tab_menu_bg"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/tab_menu_better"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Better"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="16dp"
+            />
+        <TextView
+            android:id="@+id/tv_my"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tab_menu_bg"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/tab_menu_my"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="My Home"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="16dp"
+            />
+    </LinearLayout>
+
+    <View android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/div_white"
+        android:layout_above="@id/fv_tab_bar"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/fv_tab_bar"
+        android:layout_below="@id/fv_top_bar"
+        android:id="@+id/fl_content"
+        ></FrameLayout>
+</RelativeLayout>

@@ -20,15 +20,16 @@ import java.util.List;
  * This used for constructing a entry by Koffu Xu(koffuxu@gmail.com)
  */
 public class MainActivity extends Activity {
-    static final String TAG = "koffuxu";
+    public static final String TAG = "koffuxu";
 
     private ListView listView = null;
     private List<String> getDate() {
         List<String> data = new ArrayList<String>();
-        data.add("ServiceTest");
-        data.add("BitmapTest");
-        data.add("FileOpsTest");
-        data.add("ViewTest");
+        data.add("00_ServiceTest");
+        data.add("01_BitmapTest");
+        data.add("02_FileOpsTest");
+        data.add("03_ViewTest");
+        data.add("04_ComponentTest");
         return data;
     }
 
@@ -59,19 +60,24 @@ public class MainActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        Log.d(TAG, "Item 0 Seleted");
+                        Log.d(TAG, "Item 0 Selected");
                         i.setClass(MainActivity.this, Client.class);
                         startActivity(i);
                         break;
                     case 1:
-                        Log.d(TAG, "Item BitmapTest Seleted");
+                        Log.d(TAG, "Item BitmapTest Selected");
                         //openApp("com.koffuxu.myapplication", "com.koffuxu.myapplication.BitmapListActivity");
                         i.setClass(MainActivity.this, BitmapListActivity.class);
                         startActivity(i);
                         break;
                     case 2:
-                        Log.d(TAG, "Item file ops Seleted");
+                        Log.d(TAG, "Item file ops Selected");
                         i.setClass(MainActivity.this, CopyLogActivity.class);
+                        startActivity(i);
+                        break;
+                     case 3:
+                        Log.d(TAG, "Item view test Selected");
+                        i.setClass(MainActivity.this, ViewListActivity.class);
                         startActivity(i);
                         break;
                 }

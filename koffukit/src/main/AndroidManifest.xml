@@ -32,6 +32,10 @@
         <!-- file ops Test -->
         <activity android:name=".fileOps.CopyLogActivity"></activity>
 
+        <!-- View Test -->
+        <activity android:name=".ViewListActivity"></activity>
+        <activity android:name=".view.FragmentViewTest"></activity>
+
 
     </application>
     <!-- file ops Test -->
