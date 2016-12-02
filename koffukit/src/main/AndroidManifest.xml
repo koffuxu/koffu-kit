@@ -15,6 +15,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Service Test-->
+        <activity android:name=".service.Client"></activity>
+        <service android:name=".service.LocalService"></service>
+        <service android:name=".service.RemoteService"></service>
+
+        <!-- Bitmap Test -->
         <activity android:name=".BitmapListActivity"></activity>
         <activity android:name=".bitmap.BitmapTest"></activity>
         <activity android:name=".bitmap.CanvasPaint"></activity>
@@ -22,6 +28,7 @@
         <activity android:name=".bitmap.MatrixActivity"></activity>
         <activity android:name=".bitmap.SurfaceViewMyActivity"></activity>
         <activity android:name=".bitmap.TweenMyActivity"></activity>
+
     </application>
 
 </manifest>

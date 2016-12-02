@@ -10,6 +10,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.koffuxu.myapplication.service.Client;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +59,8 @@ public class MainActivity extends Activity {
                 switch (position) {
                     case 0:
                         Log.d(TAG, "Item 0 Seleted");
+                        i.setClass(MainActivity.this, Client.class);
+                        startActivity(i);
                         break;
                     case 1:
                         Log.d(TAG, "Item BitmapTest Seleted");
