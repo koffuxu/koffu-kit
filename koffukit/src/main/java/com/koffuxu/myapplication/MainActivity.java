@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.koffuxu.myapplication.fileOps.CopyLogActivity;
 import com.koffuxu.myapplication.service.Client;
 
 import java.util.ArrayList;
@@ -26,8 +27,8 @@ public class MainActivity extends Activity {
         List<String> data = new ArrayList<String>();
         data.add("ServiceTest");
         data.add("BitmapTest");
-        data.add("ViewTest");
         data.add("FileOpsTest");
+        data.add("ViewTest");
         return data;
     }
 
@@ -69,7 +70,9 @@ public class MainActivity extends Activity {
                         startActivity(i);
                         break;
                     case 2:
-                        Log.d(TAG, "Item 2 Seleted");
+                        Log.d(TAG, "Item file ops Seleted");
+                        i.setClass(MainActivity.this, CopyLogActivity.class);
+                        startActivity(i);
                         break;
                 }
             }
