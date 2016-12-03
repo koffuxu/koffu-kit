@@ -40,7 +40,7 @@ public class FragmentViewTest extends Activity implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
-        Log.d(MainActivity.TAG, "Fragment View Test");
+        Log.d(FloatWindowMainActivity.TAG, "Fragment View Test");
         setContentView(R.layout.activity_view_test_main);
         fm = getFragmentManager();
         bindView();

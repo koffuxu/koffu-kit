@@ -23,6 +23,7 @@ public class MainActivity extends Activity {
     public static final String TAG = "koffuxu";
 
     private ListView listView = null;
+
     private List<String> getDate() {
         List<String> data = new ArrayList<String>();
         data.add("00_ServiceTest");
@@ -30,6 +31,7 @@ public class MainActivity extends Activity {
         data.add("02_FileOpsTest");
         data.add("03_ViewTest");
         data.add("04_ComponentTest");
+        data.add("05_KfProject");
         return data;
     }
 
@@ -78,6 +80,11 @@ public class MainActivity extends Activity {
                      case 3:
                         Log.d(TAG, "Item view test Selected");
                         i.setClass(MainActivity.this, ViewListActivity.class);
+                        startActivity(i);
+                        break;
+                     case 5:
+                        Log.d(TAG, "Koffu Project test Selected");
+                        i.setClass(MainActivity.this, KoffuProjectListActivity.class);
                         startActivity(i);
                         break;
                 }
