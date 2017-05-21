@@ -36,10 +36,14 @@
         <activity android:name=".ViewListActivity"></activity>
         <activity android:name=".view.FragmentViewTest"></activity>
 
+        <!-- Java Base Test -->
+        <activity android:name=".BaseActivity"></activity>
+
         <!-- koffu prj Test -->
         <activity android:name=".KoffuProjectListActivity"></activity>
         <activity android:name=".prj.floadwindow.FloatWindowMainActivity"></activity>
         <service android:name=".prj.floadwindow.FloatWindowService"></service>
+
 
 
     </application>

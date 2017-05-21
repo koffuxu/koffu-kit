@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
         data.add("01_BitmapTest");
         data.add("02_FileOpsTest");
         data.add("03_ViewTest");
-        data.add("04_ComponentTest");
+        data.add("04_JavaLangTest");
         data.add("05_KfProject");
         return data;
     }
@@ -80,6 +80,11 @@ public class MainActivity extends Activity {
                      case 3:
                         Log.d(TAG, "Item view test Selected");
                         i.setClass(MainActivity.this, ViewListActivity.class);
+                        startActivity(i);
+                        break;
+                    case 4:
+                        Log.d(TAG, "Java Base test Selected");
+                        i.setClass(MainActivity.this, BaseActivity.class);
                         startActivity(i);
                         break;
                      case 5:
