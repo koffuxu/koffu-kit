@@ -34,6 +34,7 @@ public class MainActivity extends Activity {
         data.add("04_JavaLangTest");
         data.add("05_KfProject");
         data.add("06_SocketTest");
+        data.add("07_3nd_lib_Test");
         return data;
     }
 
@@ -97,6 +98,11 @@ public class MainActivity extends Activity {
                     case 6:
                         Log.d(TAG, "Koffu Socket test Selected");
                         i.setClass(MainActivity.this, SocketTestActivity.class);
+                        startActivity(i);
+                        break;
+                    case 7:
+                        Log.d(TAG, "Koffu 3nd lib test Selected");
+                        i.setClass(MainActivity.this, ThirdLibListActivity.class);
                         startActivity(i);
                         break;
                 }

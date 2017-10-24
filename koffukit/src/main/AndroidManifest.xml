@@ -45,6 +45,9 @@
         <service android:name=".prj.floadwindow.FloatWindowService"></service>
         <!-- Socket test activty -->
         <activity android:name=".network.SocketTestActivity"></activity>
+        <!-- 3nd Lib Test -->
+        <activity android:name=".ThirdLibListActivity"></activity>
+        <activity android:name=".ButterKnifeTest"></activity>
 
 
 
