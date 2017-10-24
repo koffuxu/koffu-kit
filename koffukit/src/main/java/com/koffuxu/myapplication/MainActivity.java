@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.koffuxu.myapplication.fileOps.CopyLogActivity;
+import com.koffuxu.myapplication.network.SocketTestActivity;
 import com.koffuxu.myapplication.service.Client;
 
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class MainActivity extends Activity {
         data.add("03_ViewTest");
         data.add("04_JavaLangTest");
         data.add("05_KfProject");
+        data.add("06_SocketTest");
         return data;
     }
 
@@ -90,6 +92,11 @@ public class MainActivity extends Activity {
                      case 5:
                         Log.d(TAG, "Koffu Project test Selected");
                         i.setClass(MainActivity.this, KoffuProjectListActivity.class);
+                        startActivity(i);
+                        break;
+                    case 6:
+                        Log.d(TAG, "Koffu Socket test Selected");
+                        i.setClass(MainActivity.this, SocketTestActivity.class);
                         startActivity(i);
                         break;
                 }
