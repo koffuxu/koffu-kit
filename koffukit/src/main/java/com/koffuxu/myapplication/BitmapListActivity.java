@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.koffuxu.myapplication.bitmap.AnimationTest;
+import com.koffuxu.myapplication.bitmap.BitmapReflectionActivity;
 import com.koffuxu.myapplication.bitmap.BitmapTest;
 import com.koffuxu.myapplication.bitmap.CanvasPaint;
 import com.koffuxu.myapplication.bitmap.MatrixActivity;
@@ -33,6 +34,7 @@ public class BitmapListActivity extends Activity{
         data.add("Matrix");
         data.add("SurfaceView");
         data.add("Tween");
+        data.add("reflection");
         return data;
     }
 
@@ -75,6 +77,10 @@ public class BitmapListActivity extends Activity{
                     case 5:
                         Log.d(MainActivity.TAG, "Canvas Paint Selected");
                         i2.setClass(BitmapListActivity.this, TweenMyActivity.class);
+                        startActivity(i2);
+                        break;
+                     case 6:
+                        i2.setClass(BitmapListActivity.this, BitmapReflectionActivity.class);
                         startActivity(i2);
                         break;
                 }
