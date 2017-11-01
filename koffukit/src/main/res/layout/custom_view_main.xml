@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:customview="http://schemas.android.com/apk/res/com.koffuxu.myapplication"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+    >
+
+    <com.koffuxu.myapplication.view.CustomViewTest1
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
+    <com.koffuxu.myapplication.view.CustomViewTest2
+        android:id="@+id/custom2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+       />
+    <!--自定义属性引用customview-->
+    <com.koffuxu.myapplication.view.CustomViewTest3
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        customview:auto_play="true"
+        android:src="@drawable/galaxy"
+        />
+</LinearLayout>

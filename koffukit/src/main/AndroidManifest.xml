@@ -37,6 +37,7 @@
         <!-- View Test -->
         <activity android:name=".ViewListActivity"></activity>
         <activity android:name=".view.FragmentViewTest"></activity>
+        <activity android:name=".view.CustomViewMain"></activity>
 
         <!-- Java Base Test -->
         <activity android:name=".BaseActivity"></activity>

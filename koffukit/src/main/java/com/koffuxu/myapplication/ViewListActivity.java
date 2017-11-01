@@ -9,7 +9,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.koffuxu.myapplication.view.CustomViewMain;
 import com.koffuxu.myapplication.view.FragmentViewTest;
+import com.koffuxu.myapplication.view.RecyclerViewTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,7 @@ public class ViewListActivity extends Activity {
         List<String> data = new ArrayList<String>();
         data.add("FragmentView");
         data.add("CustomView");
+        data.add("RecyclerView");
         return data;
     }
     @Override
@@ -42,6 +45,15 @@ public class ViewListActivity extends Activity {
                         startActivity(i);
                         break;
                     case 1:
+                        //TODO
+                        Log.d(MainActivity.TAG, "Item Fragment Selected");
+                        i.setClass(ViewListActivity.this, CustomViewMain.class);
+                        startActivity(i);
+                        break;
+                    case 2:
+                        Log.d(MainActivity.TAG, "Item Fragment Selected");
+                        i.setClass(ViewListActivity.this, RecyclerViewTest.class);
+                        startActivity(i);
                         break;
                 }
             }
