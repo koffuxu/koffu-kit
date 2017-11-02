@@ -37,12 +37,16 @@ public class RecyclerViewTest extends Activity {
     private List<Integer> mDatas;
     private MyRecyclerAdatper mAdapter;
 
+    //
+    private ImageView showImageView;
+
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_recycler_view);
+        showImageView = (ImageView) findViewById(R.id.show_image_view);
         initData();
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_test);
         //设置布局管理器
@@ -60,6 +64,7 @@ public class RecyclerViewTest extends Activity {
             public void onMyItemClick(View view, int postion) {
                 Toast.makeText(RecyclerViewTest.this, "点击了第 "+postion+" 个ITEM",
                         Toast.LENGTH_SHORT).show();
+                showImageView.setImageResource(mDatas.get(postion));
             }
         });
 
