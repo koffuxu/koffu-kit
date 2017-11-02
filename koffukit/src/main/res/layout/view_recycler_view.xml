@@ -5,15 +5,18 @@
               android:layout_height="match_parent">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="30dp"
+        android:textSize="20sp"
         android:text="RecyclerTest"
+        android:textColor="@color/text_gray"
+        android:gravity="center"
         />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_test"
-        android:orientation="horizon"
+        android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
     </android.support.v7.widget.RecyclerView>
 
 
