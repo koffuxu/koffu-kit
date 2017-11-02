@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import com.koffuxu.myapplication.view.CustomViewMain;
 import com.koffuxu.myapplication.view.FragmentViewTest;
+import com.koffuxu.myapplication.view.PopupWindowTest;
 import com.koffuxu.myapplication.view.RecyclerViewTest;
 
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class ViewListActivity extends Activity {
         data.add("FragmentView");
         data.add("CustomView");
         data.add("RecyclerView");
+        data.add("PopupWindow");
         return data;
     }
     @Override
@@ -53,6 +55,11 @@ public class ViewListActivity extends Activity {
                     case 2:
                         Log.d(MainActivity.TAG, "Item Fragment Selected");
                         i.setClass(ViewListActivity.this, RecyclerViewTest.class);
+                        startActivity(i);
+                        break;
+                    case 3:
+                        Log.d(MainActivity.TAG, "Item Fragment Selected");
+                        i.setClass(ViewListActivity.this, PopupWindowTest.class);
                         startActivity(i);
                         break;
                 }

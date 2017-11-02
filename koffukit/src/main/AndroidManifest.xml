@@ -39,6 +39,7 @@
         <activity android:name=".view.FragmentViewTest"></activity>
         <activity android:name=".view.CustomViewMain"></activity>
         <activity android:name=".view.RecyclerViewTest"></activity>
+        <activity android:name=".view.PopupWindowTest"></activity>
 
         <!-- Java Base Test -->
         <activity android:name=".BaseActivity"></activity>
