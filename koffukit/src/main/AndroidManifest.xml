@@ -52,6 +52,7 @@
         <!-- 3nd Lib Test -->
         <activity android:name=".ThirdLibListActivity"></activity>
         <activity android:name=".ButterKnifeTest"></activity>
+        <activity android:name=".mvpsample.MVPSampleMainActivity"></activity>
 
 
 
