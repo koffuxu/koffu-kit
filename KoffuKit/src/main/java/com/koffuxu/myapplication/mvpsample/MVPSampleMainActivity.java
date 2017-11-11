@@ -11,12 +11,9 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import com.koffuxu.myapplication.R;
-import com.koffuxu.myapplication.view.UserInforPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.security.auth.login.LoginException;
 
 import static com.koffuxu.myapplication.MainActivity.TAG;
 
@@ -35,6 +32,7 @@ public class MVPSampleMainActivity extends Activity implements IBaseView, View.O
     private ProgressBar progressBar;
 
     private UserInforPresenter userInforPresenter;
+    private UserInforPresenter userInforPresenter2;
     private List<EditText> list;
     private Context context;
 
@@ -44,6 +42,17 @@ public class MVPSampleMainActivity extends Activity implements IBaseView, View.O
         setContentView(R.layout.activity_mvp_sample_main);
         init();
         initView();
+    }
+        /**
+     * construct presenter class
+     */
+    @Override
+    public void init() {
+        //userInforPresenter = new UserInforPresenter();
+        UserInfo userInfo = new UserInfo();
+        userInforPresenter2 = new UserInforPresenter(userInfo, this);
+        list = new ArrayList<>();
+        context = getApplicationContext();
     }
 
     @Override
@@ -70,27 +79,44 @@ public class MVPSampleMainActivity extends Activity implements IBaseView, View.O
 
     }
 
+    public void submitData2() {
+        Log.i(TAG, "submitData2: ");
+        List<String> etList = new ArrayList<String>();
+        etList.add(et1.getText().toString());
+        etList.add(et2.getText().toString());
+        etList.add(et3.getText().toString());
+        etList.add(et4.getText().toString());
+        userInforPresenter2.submitData2(etList);
+
+    }
+
     @Override
     public void clearData() {
         Log.i(TAG, "clearData: ");
-        userInforPresenter.initdata(list);
+        //userInforPresenter.initdata(list);
+        userInforPresenter2.initdata(list);
     }
 
-    /**
-     * construct presenter class
-     */
+
+
     @Override
-    public void init() {
-        userInforPresenter = new UserInforPresenter();
-        list = new ArrayList<>();
-        context = getApplicationContext();
+    public void showProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgressBar() {
+        Log.i(TAG, "hideProgressBar: ");
+        progressBar.setVisibility(View.INVISIBLE);
+
     }
 
     @Override
     public void onClick(View view) {
        switch (view.getId()) {
            case R.id.bt1:
-               submitData();
+               //submitData();
+               submitData2();
                break;
            case R.id.bt2:
                clearData();

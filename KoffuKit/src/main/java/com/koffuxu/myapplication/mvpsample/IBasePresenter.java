@@ -12,5 +12,6 @@ import java.util.List;
 
 public interface IBasePresenter {
     void submitData(Context context, List<EditText> list, ProgressBar progressBar);
+    void submitData2(List<String> etlist);
     void initdata(List<EditText> list);
 }

@@ -9,4 +9,6 @@ public interface IBaseView {
     void submitData();
     void clearData();
     void init();
+    void showProgressBar();
+    void hideProgressBar();
 }
