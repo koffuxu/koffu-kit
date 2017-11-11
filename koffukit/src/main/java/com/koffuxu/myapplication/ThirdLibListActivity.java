@@ -9,15 +9,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.koffuxu.myapplication.bitmap.AnimationTest;
-import com.koffuxu.myapplication.bitmap.BitmapTest;
-import com.koffuxu.myapplication.bitmap.CanvasPaint;
-import com.koffuxu.myapplication.bitmap.MatrixActivity;
-import com.koffuxu.myapplication.bitmap.SurfaceViewMyActivity;
-import com.koffuxu.myapplication.bitmap.TweenMyActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.koffuxu.myapplication.mvpsample.*;
 
 /**
  * Created by koffuxu on 2016/11/20.
@@ -28,6 +23,7 @@ public class ThirdLibListActivity extends Activity{
     private List<String> getDate() {
         List<String> data = new ArrayList<String>();
         data.add("ButterKnife");
+        data.add("mvp sample");
         return data;
     }
 
@@ -47,6 +43,12 @@ public class ThirdLibListActivity extends Activity{
                         i2.setClass(ThirdLibListActivity.this, ButterKnifeTest.class);
                         startActivity(i2);
                         break;
+                    case 1:
+                        Log.d(MainActivity.TAG, "Item mvp smaple Selected");
+                        i2.setClass(ThirdLibListActivity.this, MVPSampleMainActivity.class);
+                        startActivity(i2);
+                        break;
+
 
                 }
             }
