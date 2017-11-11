@@ -40,6 +40,7 @@
         <activity android:name=".view.CustomViewMain"></activity>
         <activity android:name=".view.RecyclerViewTest"></activity>
         <activity android:name=".view.PopupWindowTest"></activity>
+        <activity android:name=".view.ViewPageTest"></activity>
 
         <!-- Java Base Test -->
         <activity android:name=".BaseActivity"></activity>

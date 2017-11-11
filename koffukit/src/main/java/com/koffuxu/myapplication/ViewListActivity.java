@@ -3,6 +3,7 @@ package com.koffuxu.myapplication;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +14,7 @@ import com.koffuxu.myapplication.view.CustomViewMain;
 import com.koffuxu.myapplication.view.FragmentViewTest;
 import com.koffuxu.myapplication.view.PopupWindowTest;
 import com.koffuxu.myapplication.view.RecyclerViewTest;
+import com.koffuxu.myapplication.view.ViewPageTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,7 @@ public class ViewListActivity extends Activity {
         data.add("CustomView");
         data.add("RecyclerView");
         data.add("PopupWindow");
+        data.add("ViewPage");
         return data;
     }
     @Override
@@ -60,6 +63,11 @@ public class ViewListActivity extends Activity {
                     case 3:
                         Log.d(MainActivity.TAG, "Item Fragment Selected");
                         i.setClass(ViewListActivity.this, PopupWindowTest.class);
+                        startActivity(i);
+                        break;
+                    case 4:
+                        Log.d(MainActivity.TAG, "Item ViewPage Selected");
+                        i.setClass(ViewListActivity.this, ViewPageTest.class);
                         startActivity(i);
                         break;
                 }
