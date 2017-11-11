@@ -19,7 +19,7 @@ import java.util.List;
  * Created by XGF on 2017/11/9.
  */
 
-public class UserInforPresenter implements IBasePresenter{
+public class UserInforPresenter implements LoginContract.Presenter{
     private final static String TAG = "UserInfoPresenter";
     private UserInfo userInfo;
     private IBaseView baseView;

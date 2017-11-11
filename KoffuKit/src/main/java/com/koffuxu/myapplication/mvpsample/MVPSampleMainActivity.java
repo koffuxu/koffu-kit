@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.koffuxu.myapplication.R;
 
@@ -21,7 +22,7 @@ import static com.koffuxu.myapplication.MainActivity.TAG;
  * Created by XGF on 2017/11/9.
  */
 
-public class MVPSampleMainActivity extends Activity implements IBaseView, View.OnClickListener{
+public class MVPSampleMainActivity extends Activity implements LoginContract.View, View.OnClickListener{
 
     private EditText et1;
     private EditText et2;
@@ -122,5 +123,11 @@ public class MVPSampleMainActivity extends Activity implements IBaseView, View.O
                clearData();
                break;
        }
+    }
+
+    @Override
+    public void alterDailogin(int status) {
+        Toast.makeText(MVPSampleMainActivity.this,"Login status is:"
+                + status,Toast.LENGTH_SHORT).show();
     }
 }
