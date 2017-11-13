@@ -1,6 +1,8 @@
 package com.koffuxu.myapplication.mvpsample;
 
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,7 +24,7 @@ import static com.koffuxu.myapplication.MainActivity.TAG;
  * Created by XGF on 2017/11/9.
  */
 
-public class MVPSampleMainActivity extends Activity implements LoginContract.View, View.OnClickListener{
+public class MVPSampleMainActivity extends Activity /*implements LoginContract.View, View.OnClickListener*/{
 
     private EditText et1;
     private EditText et2;
@@ -36,17 +38,43 @@ public class MVPSampleMainActivity extends Activity implements LoginContract.Vie
     private UserInforPresenter userInforPresenter2;
     private List<EditText> list;
     private Context context;
+    private LoginFragment loginFragment;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mvp_sample_main);
-        init();
-        initView();
+        //setContentView(R.layout.activity_mvp_sample_main);
+        setContentView(R.layout.activity_mvp_sample_main_fragment);
+        init2();
+        initView2();
+
+       //init();
+        //initView();
     }
+    /*
+    * for fragment inside mode
+     */
+    public void init2(){
+        loginFragment = new LoginFragment();
+        UserInfo userInfo = new UserInfo();
+        userInforPresenter2 = new UserInforPresenter(userInfo, loginFragment);
+        loginFragment.setPresenter(userInforPresenter2);
+
+    }
+
+    private void initView2() {
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction fragTransction = fm.beginTransaction();
+        fragTransction.add(R.id.mvp_main_fragment, loginFragment);
+        fragTransction.commit();
+    }
+
         /**
      * construct presenter class
      */
+    /**
+     *
+     *
     @Override
     public void init() {
         //userInforPresenter = new UserInforPresenter();
@@ -130,4 +158,5 @@ public class MVPSampleMainActivity extends Activity implements LoginContract.Vie
         Toast.makeText(MVPSampleMainActivity.this,"Login status is:"
                 + status,Toast.LENGTH_SHORT).show();
     }
+    */
 }
