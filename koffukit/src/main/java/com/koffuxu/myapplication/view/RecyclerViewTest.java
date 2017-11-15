@@ -1,30 +1,20 @@
 package com.koffuxu.myapplication.view;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.koffuxu.myapplication.R;
+import com.koffuxu.myapplication.view.MyRecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
-
-import static android.widget.Toast.LENGTH_LONG;
 
 /**
  * Created by koffuxu on 2017/10/31.
@@ -35,12 +25,10 @@ public class RecyclerViewTest extends Activity {
     private static final String TAG = "RecyclerViewTest";
     private RecyclerView mRecyclerView;
     private List<Integer> mDatas;
-    private MyRecyclerAdatper mAdapter;
+    private MyRecyclerAdapter mAdapter;
 
     //
     private ImageView showImageView;
-
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,7 +43,9 @@ public class RecyclerViewTest extends Activity {
         llm.setOrientation(LinearLayoutManager.HORIZONTAL);
 
         //设置适配器,把自定义的数据mDatas传入
-        mAdapter = new MyRecyclerAdatper(this, mDatas);
+        //第一种：mAdapter = new MyRecyclerAdatper(this, mDatas);
+        //第二种
+        mAdapter = new MyRecyclerAdapter(this, mDatas);
         mRecyclerView.setAdapter(mAdapter);
 
         //设置每个item监听事件
@@ -78,11 +68,11 @@ public class RecyclerViewTest extends Activity {
 
     }
 
-    //item的回调接口
+    //声明item的回调接口
     public interface OnMyItemClickListener{
         void onMyItemClick(View view, int postion);
     }
-    //继承自泛型为自定义MyHoler的Adapter
+   /* //继承自泛型为自定义MyHoler的Adapter
     public class MyRecyclerAdatper extends RecyclerView.Adapter<MyRecyclerAdatper.MyHolder> {
         private Context mContext;
         private List<Integer> mDatas;
@@ -141,5 +131,5 @@ public class RecyclerViewTest extends Activity {
                 imageView = (ImageView)v.findViewById(R.id.iv_item);
             }
         }
-    }
+    }*/
 }
