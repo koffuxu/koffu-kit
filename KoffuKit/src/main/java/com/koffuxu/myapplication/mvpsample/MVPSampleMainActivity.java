@@ -4,21 +4,20 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.koffuxu.myapplication.R;
+import com.koffuxu.myapplication.daogen.DaoMaster;
+import com.koffuxu.myapplication.daogen.DaoSession;
+import com.koffuxu.myapplication.daogen.UserInfo;
+import com.koffuxu.myapplication.daogen.UserInfoDao;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static com.koffuxu.myapplication.MainActivity.TAG;
 
 /**
  * Created by XGF on 2017/11/9.
@@ -40,6 +39,31 @@ public class MVPSampleMainActivity extends Activity /*implements LoginContract.V
     private Context context;
     private LoginFragment loginFragment;
 
+    private SQLiteDatabase db;
+    private DaoMaster daoMaster;
+    private DaoSession daoSession;
+    private UserInfoDao userInfoDao;
+
+
+    private void openDb(){
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(MVPSampleMainActivity.this,"userinfo.db",null);
+        db = helper.getWritableDatabase();
+        daoMaster = new DaoMaster(db);
+        daoSession = daoMaster.newSession();
+        userInfoDao = daoSession.getUserInfoDao();
+
+    }
+
+    private void addUserInfo(){
+        UserInfo userInfo= new UserInfo();
+        //userInfoLegacy1.setAge(18);
+        userInfo.setGender("M");
+        userInfo.setHobby("Play");
+        userInfo.setName("Jhon");
+        userInfoDao.insert(userInfo);
+
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +71,9 @@ public class MVPSampleMainActivity extends Activity /*implements LoginContract.V
         setContentView(R.layout.activity_mvp_sample_main_fragment);
         init2();
         initView2();
+        //GreenDao Test
+        openDb();
+        addUserInfo();
 
        //init();
         //initView();
@@ -56,8 +83,8 @@ public class MVPSampleMainActivity extends Activity /*implements LoginContract.V
      */
     public void init2(){
         loginFragment = new LoginFragment();
-        UserInfo userInfo = new UserInfo();
-        userInforPresenter2 = new UserInforPresenter(userInfo, loginFragment);
+        UserInfo_Legacy userInfoLegacy = new UserInfo_Legacy();
+        userInforPresenter2 = new UserInforPresenter(userInfoLegacy, loginFragment);
         loginFragment.setPresenter(userInforPresenter2);
 
     }
@@ -78,7 +105,7 @@ public class MVPSampleMainActivity extends Activity /*implements LoginContract.V
     @Override
     public void init() {
         //userInforPresenter = new UserInforPresenter();
-        UserInfo userInfo = new UserInfo();
+        UserInfo_Legacy userInfo = new UserInfo_Legacy();
         userInforPresenter2 = new UserInforPresenter(userInfo, this);
         list = new ArrayList<>();
         context = getApplicationContext();

@@ -6,13 +6,8 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-import com.koffuxu.myapplication.mvpsample.IBasePresenter;
-import com.koffuxu.myapplication.mvpsample.UserInfo;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,7 +16,7 @@ import java.util.List;
 
 public class UserInforPresenter implements LoginContract.Presenter{
     private final static String TAG = "UserInfoPresenter";
-    private UserInfo userInfo;
+    private UserInfo_Legacy userInfoLegacy;
     private IBaseView baseView;
 
     private Handler handler2 = new Handler(){
@@ -39,8 +34,8 @@ public class UserInforPresenter implements LoginContract.Presenter{
         }
     };
 
-    public UserInforPresenter(UserInfo userInfo, IBaseView view) {
-        this.userInfo = userInfo;
+    public UserInforPresenter(UserInfo_Legacy userInfoLegacy, IBaseView view) {
+        this.userInfoLegacy = userInfoLegacy;
         this.baseView = view;
     }
 
@@ -74,10 +69,10 @@ public class UserInforPresenter implements LoginContract.Presenter{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                userInfo.setName(list.get(0).getText().toString());
-                userInfo.setAge(list.get(1).getText().toString());
-                userInfo.setGender(list.get(2).getText().toString());
-                userInfo.setHobby(list.get(3).getText().toString());
+                userInfoLegacy.setName(list.get(0).getText().toString());
+                userInfoLegacy.setAge(list.get(1).getText().toString());
+                userInfoLegacy.setGender(list.get(2).getText().toString());
+                userInfoLegacy.setHobby(list.get(3).getText().toString());
 
                 handler.sendEmptyMessage(1);
             }
@@ -102,11 +97,11 @@ public class UserInforPresenter implements LoginContract.Presenter{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                userInfo.setName(list.get(0));
-                userInfo.setAge(list.get(1));
-                userInfo.setGender(list.get(2));
-                userInfo.setHobby(list.get(3));
-
+                userInfoLegacy.setName(list.get(0));
+                userInfoLegacy.setAge(list.get(1));
+                userInfoLegacy.setGender(list.get(2));
+                userInfoLegacy.setHobby(list.get(3));
+                //提交到数据库
                 handler2.sendEmptyMessage(1);
             }
         }.start();
@@ -116,7 +111,7 @@ public class UserInforPresenter implements LoginContract.Presenter{
     @Override
     public void initdata(List<EditText> list) {
         Log.i(TAG, "before clear data: ");
-        Log.i(TAG, "had store data:"+userInfo.toString());
+        Log.i(TAG, "had store data:"+ userInfoLegacy.toString());
         for(EditText editText:list) {
             editText.setText("");
         }

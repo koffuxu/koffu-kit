@@ -3,7 +3,7 @@ package com.koffuxu.myapplication.mvpsample;
 /**
  * Created by XGF on 2017/11/9.
  */
-public class UserInfo {
+public class UserInfo_Legacy {
     public String getName() {
         return name;
     }
@@ -38,7 +38,7 @@ public class UserInfo {
 
     @Override
     public String toString() {
-        return "UserInfo{" +
+        return "UserInfo_Legacy{" +
                 "age='" + age + '\'' +
                 ", name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
