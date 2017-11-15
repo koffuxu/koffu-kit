@@ -1,12 +1,18 @@
 package com.koffuxu.myapplication.mvpsample;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+
+import com.koffuxu.myapplication.daogen.DaoMaster;
+import com.koffuxu.myapplication.daogen.DaoSession;
+import com.koffuxu.myapplication.daogen.UserInfo;
+import com.koffuxu.myapplication.daogen.UserInfoDao;
 
 import java.util.List;
 
@@ -16,8 +22,33 @@ import java.util.List;
 
 public class UserInforPresenter implements LoginContract.Presenter{
     private final static String TAG = "UserInfoPresenter";
-    private UserInfo_Legacy userInfoLegacy;
+    private UserInfo UserInfo;
     private IBaseView baseView;
+
+     private SQLiteDatabase db;
+    private DaoMaster daoMaster;
+    private DaoSession daoSession;
+    private UserInfoDao userInfoDao;
+
+
+    private void openDb(Context context){
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context,"userinfo.db",null);
+        db = helper.getWritableDatabase();
+        daoMaster = new DaoMaster(db);
+        daoSession = daoMaster.newSession();
+        userInfoDao = daoSession.getUserInfoDao();
+
+    }
+
+    private void addUserInfo(){
+        UserInfo userInfo= new UserInfo();
+        //UserInfo1.setAge(18);
+        userInfo.setGender("M");
+        userInfo.setHobby("Play");
+        userInfo.setName("Jhon");
+        userInfoDao.insert(userInfo);
+
+    }
 
     private Handler handler2 = new Handler(){
         @Override
@@ -34,9 +65,10 @@ public class UserInforPresenter implements LoginContract.Presenter{
         }
     };
 
-    public UserInforPresenter(UserInfo_Legacy userInfoLegacy, IBaseView view) {
-        this.userInfoLegacy = userInfoLegacy;
+    public UserInforPresenter(UserInfo UserInfo, IBaseView view, Context context) {
+        this.UserInfo = UserInfo;
         this.baseView = view;
+        openDb(context);
     }
 
     @Override
@@ -69,10 +101,10 @@ public class UserInforPresenter implements LoginContract.Presenter{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                userInfoLegacy.setName(list.get(0).getText().toString());
-                userInfoLegacy.setAge(list.get(1).getText().toString());
-                userInfoLegacy.setGender(list.get(2).getText().toString());
-                userInfoLegacy.setHobby(list.get(3).getText().toString());
+                UserInfo.setName(list.get(0).getText().toString());
+                UserInfo.setAge(Integer.parseInt(list.get(1).getText().toString()));
+                UserInfo.setGender(list.get(2).getText().toString());
+                UserInfo.setHobby(list.get(3).getText().toString());
 
                 handler.sendEmptyMessage(1);
             }
@@ -97,11 +129,15 @@ public class UserInforPresenter implements LoginContract.Presenter{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                userInfoLegacy.setName(list.get(0));
-                userInfoLegacy.setAge(list.get(1));
-                userInfoLegacy.setGender(list.get(2));
-                userInfoLegacy.setHobby(list.get(3));
+                UserInfo.setName(list.get(0));
+                UserInfo.setAge(Integer.parseInt(list.get(1).toString()));
+                UserInfo.setGender(list.get(2));
+                UserInfo.setHobby(list.get(3));
                 //提交到数据库
+                System.out.println("write to db");
+                userInfoDao.insert(UserInfo);
+
+
                 handler2.sendEmptyMessage(1);
             }
         }.start();
@@ -111,7 +147,7 @@ public class UserInforPresenter implements LoginContract.Presenter{
     @Override
     public void initdata(List<EditText> list) {
         Log.i(TAG, "before clear data: ");
-        Log.i(TAG, "had store data:"+ userInfoLegacy.toString());
+        Log.i(TAG, "had store data:"+ UserInfo.toString());
         for(EditText editText:list) {
             editText.setText("");
         }

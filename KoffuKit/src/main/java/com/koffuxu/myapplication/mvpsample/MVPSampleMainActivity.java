@@ -39,7 +39,7 @@ public class MVPSampleMainActivity extends Activity /*implements LoginContract.V
     private Context context;
     private LoginFragment loginFragment;
 
-    private SQLiteDatabase db;
+ /*   private SQLiteDatabase db;
     private DaoMaster daoMaster;
     private DaoSession daoSession;
     private UserInfoDao userInfoDao;
@@ -56,24 +56,25 @@ public class MVPSampleMainActivity extends Activity /*implements LoginContract.V
 
     private void addUserInfo(){
         UserInfo userInfo= new UserInfo();
-        //userInfoLegacy1.setAge(18);
+        //UserInfo1.setAge(18);
         userInfo.setGender("M");
         userInfo.setHobby("Play");
         userInfo.setName("Jhon");
         userInfoDao.insert(userInfo);
 
-    }
+    }*/
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_mvp_sample_main);
         setContentView(R.layout.activity_mvp_sample_main_fragment);
+        context = getApplicationContext();
         init2();
         initView2();
         //GreenDao Test
-        openDb();
-        addUserInfo();
+        //openDb();
+        //addUserInfo();
 
        //init();
         //initView();
@@ -83,8 +84,8 @@ public class MVPSampleMainActivity extends Activity /*implements LoginContract.V
      */
     public void init2(){
         loginFragment = new LoginFragment();
-        UserInfo_Legacy userInfoLegacy = new UserInfo_Legacy();
-        userInforPresenter2 = new UserInforPresenter(userInfoLegacy, loginFragment);
+        UserInfo userInfo = new UserInfo();
+        userInforPresenter2 = new UserInforPresenter(userInfo, loginFragment, context);
         loginFragment.setPresenter(userInforPresenter2);
 
     }
@@ -105,7 +106,7 @@ public class MVPSampleMainActivity extends Activity /*implements LoginContract.V
     @Override
     public void init() {
         //userInforPresenter = new UserInforPresenter();
-        UserInfo_Legacy userInfo = new UserInfo_Legacy();
+        UserInfo userInfo = new UserInfo();
         userInforPresenter2 = new UserInforPresenter(userInfo, this);
         list = new ArrayList<>();
         context = getApplicationContext();
