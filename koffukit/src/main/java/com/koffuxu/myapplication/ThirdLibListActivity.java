@@ -13,6 +13,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 import com.koffuxu.myapplication.mvpsample.*;
+import com.koffuxu.myapplication.thirdlib.dagger2test.MainActivityTestDagger;
 
 /**
  * Created by koffuxu on 2016/11/20.
@@ -24,6 +25,7 @@ public class ThirdLibListActivity extends Activity{
         List<String> data = new ArrayList<String>();
         data.add("ButterKnife");
         data.add("mvp sample");
+        data.add("dagger2 test");
         return data;
     }
 
@@ -46,6 +48,11 @@ public class ThirdLibListActivity extends Activity{
                     case 1:
                         Log.d(MainActivity.TAG, "Item mvp smaple Selected");
                         i2.setClass(ThirdLibListActivity.this, MVPSampleMainActivity.class);
+                        startActivity(i2);
+                        break;
+                    case 2:
+                        Log.d(MainActivity.TAG, "Item dagger2 test Selected");
+                        i2.setClass(ThirdLibListActivity.this, MainActivityTestDagger.class);
                         startActivity(i2);
                         break;
 
