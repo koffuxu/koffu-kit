@@ -56,6 +56,7 @@
         <activity android:name=".ButterKnifeTest"></activity>
         <activity android:name=".mvpsample.MVPSampleMainActivity"></activity>
         <activity android:name=".thirdlib.dagger2test.MainActivityTestDagger"></activity>
+        <activity android:name=".thirdlib.retrofit2.GetRequestActivity"></activity>
 
     </application>
     <!-- file ops Test -->

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.koffuxu.myapplication.mvpsample.*;
 import com.koffuxu.myapplication.thirdlib.dagger2test.MainActivityTestDagger;
+import com.koffuxu.myapplication.thirdlib.retrofit2.GetRequestActivity;
 
 /**
  * Created by koffuxu on 2016/11/20.
@@ -26,6 +27,7 @@ public class ThirdLibListActivity extends Activity{
         data.add("ButterKnife");
         data.add("mvp sample");
         data.add("dagger2 test");
+        data.add("retrofit test");
         return data;
     }
 
@@ -53,6 +55,11 @@ public class ThirdLibListActivity extends Activity{
                     case 2:
                         Log.d(MainActivity.TAG, "Item dagger2 test Selected");
                         i2.setClass(ThirdLibListActivity.this, MainActivityTestDagger.class);
+                        startActivity(i2);
+                        break;
+                    case 3:
+                        Log.d(MainActivity.TAG, "Item retrofit test Selected");
+                        i2.setClass(ThirdLibListActivity.this, GetRequestActivity.class);
                         startActivity(i2);
                         break;
 
