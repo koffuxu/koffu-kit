@@ -15,6 +15,7 @@ import java.util.List;
 import com.koffuxu.myapplication.mvpsample.*;
 import com.koffuxu.myapplication.thirdlib.dagger2test.MainActivityTestDagger;
 import com.koffuxu.myapplication.thirdlib.retrofit2.GetRequestActivity;
+import com.koffuxu.myapplication.thirdlib.retrofit2_rxjava2.SearchBookActivity;
 
 /**
  * Created by koffuxu on 2016/11/20.
@@ -28,6 +29,7 @@ public class ThirdLibListActivity extends Activity{
         data.add("mvp sample");
         data.add("dagger2 test");
         data.add("retrofit test");
+        data.add("retrofit-rxjava test");
         return data;
     }
 
@@ -60,6 +62,12 @@ public class ThirdLibListActivity extends Activity{
                     case 3:
                         Log.d(MainActivity.TAG, "Item retrofit test Selected");
                         i2.setClass(ThirdLibListActivity.this, GetRequestActivity.class);
+                        startActivity(i2);
+                        break;
+
+                    case 4:
+                        Log.d(MainActivity.TAG, "Item retrofit test Selected");
+                        i2.setClass(ThirdLibListActivity.this, SearchBookActivity.class);
                         startActivity(i2);
                         break;
 

@@ -57,6 +57,7 @@
         <activity android:name=".mvpsample.MVPSampleMainActivity"></activity>
         <activity android:name=".thirdlib.dagger2test.MainActivityTestDagger"></activity>
         <activity android:name=".thirdlib.retrofit2.GetRequestActivity"></activity>
+        <activity android:name=".thirdlib.retrofit2_rxjava2.SearchBookActivity"></activity>
 
     </application>
     <!-- file ops Test -->
