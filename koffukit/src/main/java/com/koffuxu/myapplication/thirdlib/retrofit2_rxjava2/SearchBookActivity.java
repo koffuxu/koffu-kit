@@ -16,6 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 import static com.koffuxu.myapplication.MainActivity.TAG;
@@ -40,6 +41,7 @@ public class SearchBookActivity extends Activity {
     }
 
     private void request() {
+        Log.i(TAG, "request: ");
         // 使用原始的方法
        /* Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.douban.com/v2/")
@@ -72,6 +74,12 @@ public class SearchBookActivity extends Activity {
 
         RetrofitService service = retrofit.create(RetrofitService.class);
         Observable<Book> observable = service.getSearchBook("金瓶梅",null,0,1);
+        observable.doOnNext(new Action1<Book>() {
+            @Override
+            public void call(Book book) {
+                Log.i(TAG, "call: ");
+            }
+        });
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Book>() {
@@ -90,6 +98,7 @@ public class SearchBookActivity extends Activity {
                     @Override
                     public void onNext(Book book) {
                         Log.i(TAG, "onNext: " + book.getBooks());
+                        tvRetrofitTest.setText("Book Name" + book.getBooks().get(0).getSummary());
 
                     }
                 });
